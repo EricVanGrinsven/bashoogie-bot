@@ -25,6 +25,15 @@ def get_updates(offset=None):
     js = get_json_from_url(url)
     return js
 
+def echo_all(updates):
+    for update in updates["result"]:
+        try:
+            text = update["message"]["text"]
+            chat = update["message"]["chat"]["id"]
+            send_message(text, chat)
+        except Exception as e:
+            print(e)
+            
 def get_last_update_id(updates):
     update_ids = []
     for update in updates["result"]:
