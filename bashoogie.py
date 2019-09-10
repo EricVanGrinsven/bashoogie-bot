@@ -46,5 +46,4 @@ def main():
         time.sleep(0.5)
 
 main()
-text, chat = get_last_chat_id_and_text(get_updates())
-send_message(text, chat)
+
