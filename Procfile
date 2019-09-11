@@ -1,1 +1,1 @@
-web: python3 bashoogie.py
+worker: python3 bashoogie.py
