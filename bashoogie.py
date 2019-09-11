@@ -59,12 +59,13 @@ def send_message(text, chat_id):
 
 
 def main():
-    send_message(get_last_chat_id_and_text(updates)
-    
-if __name__== "__main__":
     updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
                       url_path=TOKEN)
     updater.bot.set_webhook("https://young-waters-97525.herokuapp.com/" + TOKEN)
     updater.idle()
+    send_message(get_last_chat_id_and_text(updates)
+    
+if __name__== "__main__":
+    main()
 
