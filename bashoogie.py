@@ -1,10 +1,18 @@
 import json 
 import requests
 import time
-
+from flask import Flask, request
+import os
 TOKEN = "771496641:AAFxDXFGa67rTkzJcnYo0BjDlwI77lpSXE4"
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
-
+PORT = int(os.environ.get('PORT', '8443'))
+updater = Updater(TOKEN)
+# add handlers
+updater.start_webhook(listen="0.0.0.0",
+                      port=PORT,
+                      url_path=TOKEN)
+updater.bot.set_webhook("https://<appname>.herokuapp.com/" + TOKEN)
+updater.idle()
 
 def get_url(url):
     response = requests.get(url)
@@ -54,12 +62,9 @@ def send_message(text, chat_id):
 
 def main():
     last_update_id = None
-    while True:
-        updates = get_updates(last_update_id)
-        if 1 > 0:
-            last_update_id = get_last_update_id(updates) + 1
-            echo_all(updates)
-        time.sleep(0.5)
+    updater.start_webhook(listen='127.0.0.1', port=5000, url_path='TOKEN1')
+    updater.bot.set_webhook(webhook_url='https://young-waters-97525.herokuapp.com/TOKEN1',
+                        certificate=open('cert.pem', 'rb'))
 
 main()
 
