@@ -1,1 +1,1 @@
-web: gunicorn bashoogie.wsgi --log-file -
+web: python3 bashoogie.py
