@@ -8,7 +8,11 @@ URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 PORT = int(os.environ.get('PORT', '8443'))
 updater = Updater(TOKEN)
 # add handlers
-
+updater.start_webhook(listen="0.0.0.0",
+                      port=PORT,
+                      url_path=TOKEN)
+updater.bot.set_webhook("https://young-waters-97525.herokuapp.com/" + TOKEN)
+updater.idle()
 
 def get_url(url):
     response = requests.get(url)
@@ -59,12 +63,8 @@ def send_message(text, chat_id):
 
 
 def main():
-    updater.start_webhook(listen="0.0.0.0",
-                      port=PORT,
-                      url_path=TOKEN)
-    updater.bot.set_webhook("https://young-waters-97525.herokuapp.com/" + TOKEN)
-    updater.idle()
-    send_message(get_last_chat_id_and_text(updates)
+    
+    send_message(get_last_chat_id_and_text(get_updates)
     
 if __name__== "__main__":
     main()
