@@ -2,6 +2,7 @@ import json
 import requests
 import time
 import os
+from telegram.ext import Updater
 TOKEN = "771496641:AAFxDXFGa67rTkzJcnYo0BjDlwI77lpSXE4"
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 PORT = int(os.environ.get('PORT', '8443'))
