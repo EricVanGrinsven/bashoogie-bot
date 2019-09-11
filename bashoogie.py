@@ -66,6 +66,6 @@ def main():
     
     send_message(get_last_chat_id_and_text(get_updates)
     
-if __name__== "__main__":
+if __name__ == '__main__':
     main()
 
