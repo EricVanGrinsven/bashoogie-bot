@@ -1,75 +1,36 @@
-import json 
-import requests
-import time
+
+import telebot
+from flask import Flask, request
 import os
-from telegram.ext import Updater
-TOKEN = "771496641:AAFxDXFGa67rTkzJcnYo0BjDlwI77lpSXE4"
-URL = "https://api.telegram.org/bot{}/".format(TOKEN)
-PORT = int(os.environ.get('PORT', '8443'))
-updater = Updater(TOKEN)
-# add handlers
 
+TOKEN = "your bot token here"
+bot = telebot.TeleBot(token=TOKEN)
+server Flask(__name__)/]
+def findat(msg):
+    # from a list of texts, it finds the one with the '@' sign
+    for i in msg:
+        if '@' in i:
+            return i
 
-def get_url(url):
-    response = requests.get(url)
-    content = response.content.decode("utf8")
-    return content
+@bot.message_handler(commands=['start']) # welcome message handler
+def send_welcome(message):
+    bot.reply_to(message, '(placeholder text)')
 
+@bot.message_handler(commands=['help']) # help message handler
+def send_welcome(message):
+    bot.reply_to(message, 'ALPHA = FEATURES MAY NOT WORK')
 
-def get_json_from_url(url):
-    content = get_url(url)
-    js = json.loads(content)
-    return js
+@bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
+# lambda function finds messages with the '@' sign in them
+# in case msg.text doesn't exist, the handler doesn't process it
+def at_converter(message):
+    texts = message.text.split()
+    at_text = findat(texts)
+    if at_text == '@': # in case it's just the '@', skip
+        pass
+    else:
+        insta_link = "https://instagram.com/{}".format(at_text[1:])
+        bot.reply_to(message, insta_link)
 
-
-def get_updates(offset=None):
-    url = URL + "getUpdates?timeout=100"
-    if offset:
-        url += "&offset={}".format(offset)
-    js = get_json_from_url(url)
-    return js
-
-def echo_all(updates):
-    for update in updates["result"]:
-        try:
-            text = update["message"]["text"]
-            chat = update["message"]["chat"]["id"]
-            send_message(text, chat)
-        except Exception as e:
-            print(e)
-            
-def get_last_update_id(updates):
-    update_ids = []
-    for update in updates["result"]:
-        update_ids.append(int(update["update_id"]))
-    return max(update_ids)
-    
-def get_last_chat_id_and_text(updates):
-    num_updates = len(updates["result"])
-    last_update = num_updates - 1
-    text = updates["result"][last_update]["message"]["text"]
-    chat_id = updates["result"][last_update]["message"]["chat"]["id"]
-    return (text, chat_id)
-
-
-def send_message(text, chat_id):
-    url = URL + "sendMessage?text={}&chat_id={}".format(text, chat_id)
-    get_url(url)
-    
-
-
-def main():
-    updater.start_webhook(listen="0.0.0.0",
-                      port=PORT,
-                      url_path=TOKEN)
-    updater.bot.set_webhook("https://young-waters-97525.herokuapp.com/" + TOKEN)
-    #updater.idle()
-    last_update_id = None
-    updates = get_updates(last_update_id)
-    if len(updates["result"]) > 0:
-            last_update_id = get_last_update_id(updates) + 1
-            echo_all(updates)
-    
-if __name__ == '__main__':
-    main()
-
+if __name__ == "__main__":
+    server.run(host="0.0.0.0", port int(os.environ.get('PORT', 5000)))
