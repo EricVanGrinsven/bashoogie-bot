@@ -1,1 +1,1 @@
-web: python3 bashoogie.py
+web: python bashoogie.py
