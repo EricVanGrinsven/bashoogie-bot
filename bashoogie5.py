@@ -13,6 +13,7 @@ def talk(update, context):
     if (message2.in("hey"))
         context.bot.send_message(chat_id=update.message.chat_id, text="fuck u")
 # add handlers
+context.bot.send_message(chat_id=update.message.chat_id, text="fuck u")
 talk_handler = MessageHandler(Filters.text, talk)
 dispatcher.add_handler(talk_handler)    
 def main()
