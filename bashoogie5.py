@@ -9,7 +9,9 @@ PORT = int(os.environ.get('PORT', '8443'))
 updater = Updater(TOKEN)
 dispatcher = updater.dispatcher
 def echo(update, context):
-    context.bot.send_message(chat_id=update.message.chat_id, text=update.message.text)
+    message = update.message.text
+    if (message.contains("hey")
+        context.bot.send_message(chat_id=update.message.chat_id, text=update.message.text)
 # add handlers
 echo_handler = MessageHandler(Filters.text, echo)
 dispatcher.add_handler(echo_handler)    
