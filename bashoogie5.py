@@ -10,7 +10,7 @@ updater = Updater(TOKEN)
 dispatcher = updater.dispatcher
 def echo(update, context):
     message = update.message.text
-    if (message.contains("hey")
+    if (message.in("hey"))
         context.bot.send_message(chat_id=update.message.chat_id, text=update.message.text)
 # add handlers
 echo_handler = MessageHandler(Filters.text, echo)
