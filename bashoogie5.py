@@ -12,7 +12,7 @@ dispatcher = updater.dispatcher
 # add handlers
 #echo_handler = MessageHandler(Filters.text, echo)
 #dispatcher.add_handler(echo_handler)    
-def echo(update, context)
+def echo(update, context):
     message2 = update.message.text
     if (message2.in("fuck"))
         context.bot.send_message(chat_id=update.message.chat_id, text=message2)
