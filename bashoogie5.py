@@ -3,7 +3,6 @@ import os
 from telegram.ext import Updater
 def echo(update, context):
     context.bot.send_message(chat_id=update.message.chat_id, text=update.message.text)
-
 from telegram.ext import MessageHandler, Filters, CommandHandler
 echo_handler = MessageHandler(Filters.text, echo)
 dispatcher.add_handler(echo_handler)
@@ -12,6 +11,7 @@ print(bot.get_me())
 TOKEN = "771496641:AAFxDXFGa67rTkzJcnYo0BjDlwI77lpSXE4"
 PORT = int(os.environ.get('PORT', '8443'))
 updater = Updater(TOKEN, use_context=True)
+dispatcher = updater.dispatcher
 #dispatcher = updater.dispatcher
 #def echo(update, context):
  #   context.bot.send_message(chat_id=update.message.chat_id, text=update.message.text)
