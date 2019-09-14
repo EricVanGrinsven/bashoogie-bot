@@ -15,7 +15,7 @@ dispatcher = updater.dispatcher
 
 def echo(update, context
     message2 = update.message.text
-    if (message.in("fuck")
+    if (message2.in("fuck")
         context.bot.send_message(chat_id=update.message.chat_id, text=message2)
 from telegram.ext import MessageHandler, Filters, CommandHandler
 echo_handler = MessageHandler(Filters.text, echo)
