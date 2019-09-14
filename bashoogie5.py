@@ -2,7 +2,6 @@ import telegram
 import os
 from telegram.ext import Updater
 
-print(bot.get_me())
 TOKEN = "771496641:AAFxDXFGa67rTkzJcnYo0BjDlwI77lpSXE4"
 PORT = int(os.environ.get('PORT', '8443'))
 updater = Updater(TOKEN, use_context=True)
