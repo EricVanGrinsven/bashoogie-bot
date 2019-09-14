@@ -6,6 +6,7 @@ bot = telegram.Bot(token='771496641:AAFxDXFGa67rTkzJcnYo0BjDlwI77lpSXE4')
 print(bot.get_me())
 TOKEN = "771496641:AAFxDXFGa67rTkzJcnYo0BjDlwI77lpSXE4"
 PORT = int(os.environ.get('PORT', '8443'))
+updater = Updater(TOKEN)
 #updater = Updater(TOKEN )
 #dispatcher = updater.dispatcher
 #def echo(update, context):
