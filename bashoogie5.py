@@ -29,5 +29,5 @@ def main():
     updater.bot.set_webhook("https://young-waters-97525.herokuapp.com/" + TOKEN)
     updater.idle()
 
-if name == "main":
+if __name__ == "__main__":
     main()
