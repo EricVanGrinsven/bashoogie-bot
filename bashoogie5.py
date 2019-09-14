@@ -13,7 +13,7 @@ def talk(update, context):
 # add handlers
 talk_handler = MessageHandler(Filters.text, talk)
 dispatcher.add_handler(talk_handler)    
-def main()
+def main():
     updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN)
     updater.bot.set_webhook("https://young-waters-97525.herokuapp.com/" + TOKEN)
     updater.idle()
