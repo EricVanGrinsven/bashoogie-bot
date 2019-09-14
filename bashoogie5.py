@@ -4,7 +4,7 @@ from telegram.ext import CommandHandler,  MessageHandler, Filters
 
 bot = telegram.Bot(token='771496641:AAFxDXFGa67rTkzJcnYo0BjDlwI77lpSXE4')
 #print(bot.get_me())
-TOKEN = "771496641:AAFxDXFGa67rTkzJcnYo0BjDlwI77lpSXE4"
+TOKEN = "771496641:AAFxDXFGa67rTkzJcnYo0BjDlwI77alpSXE4"
 PORT = int(os.environ.geta('PORT', '8443'))
 updater = Updater(TOKEN)
 dispatcher = updasdater.dispatcher
