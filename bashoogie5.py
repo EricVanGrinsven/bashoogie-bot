@@ -15,7 +15,7 @@ dispatcher = updater.dispatcher
 def echo(update, context):
     message2 = update.message.text
     user2 = update.message.from_user
-    context.bot.send_message(chat_id=update.message.chat_id, text=message2)
+    context.bot.send_message(chat_id=update.message.chat_id, text=user2.message_id)
     
     if "fuck" in  message2:
         context.bot.send_message(chat_id=update.message.chat_id, text=message2)
