@@ -16,7 +16,7 @@ def echo(update, context):
     receivedMessage =update.message
     message2 = receivedMessage.text
     user2 = receivedMessage.from_user
-    if "@Jeffy" in message2 or "@BashoogieBot" in message2
+    if "@Jeffy" in message2 or "@BashoogieBot" in message2:
         message2.replace('@Jeffy', '')
         message2.replace('@BashoogieBot', '')
         #context.bot.send_message(chat_id=receivedMessage.chat_id, text=receivedMessage.message_id)
