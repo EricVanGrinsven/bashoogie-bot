@@ -24,7 +24,7 @@ def echo(update, context):
     counter = 0
     for link in content.find_all('a'):
         counter+=1
-        if counter==20:
+        if counter == 20:
             context.bot.send_message(chat_id=receivedMessage.chat_id, text=link.get('href')
     if "fuck" in  message2:
         context.bot.send_message(chat_id=update.message.chat_id, text=message2)
