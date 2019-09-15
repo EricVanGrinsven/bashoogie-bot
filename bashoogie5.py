@@ -1,6 +1,7 @@
 import telegram
 import os
 import requests
+import youtube
 from telegram.ext import MessageHandler, Filters, CommandHandler,Updater
 from bs4 import BeautifulSoup
 TOKEN = "771496641:AAFxDXFGa67rTkzJcnYo0BjDlwI77lpSXE4"
@@ -19,18 +20,9 @@ def echo(update, context):
     if "@Jeffy" in message2 or "@BashoogieBot" in message2:
         message2 = message2.replace('@Jeffy', '')
         message2 = message2.replace('@BashoogieBot', '')
+        youtube.send_video(message2)
         #context.bot.send_message(chat_id=receivedMessage.chat_id, text=receivedMessage.message_id)
-        message2 = message2.replace(' ', '+')
-        url = 'https://www.youtube.com/results?search_query='
-        response = requests.get(url + message2,timeout=5)
-        content = BeautifulSoup(response.content, "html.parser")
-        counter = 0
-        set = True
-        for link in content.find_all('a'):
-            counter+=1
-            if counter >= 47 and "google" not in link.get('href') and  "user" not in link.get('href') and set == True:
-                context.bot.send_message(chat_id=receivedMessage.chat_id, text= 'youtube.com' + link.get('href'))
-                set = False
+        
     #if "fuck" in message2:
     #    context.bot.send_message(chat_id=update.message.chat_id, text=message2)
 echo_handler = MessageHandler(Filters.text, echo)
