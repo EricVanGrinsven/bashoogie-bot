@@ -1,7 +1,7 @@
 import telegram
 import os
 import requests
-import youtube
+from youtube import send_video
 from telegram.ext import MessageHandler, Filters, CommandHandler,Updater
 from bs4 import BeautifulSoup
 TOKEN = "771496641:AAFxDXFGa67rTkzJcnYo0BjDlwI77lpSXE4"
@@ -20,7 +20,7 @@ def echo(update, context):
     if "@Jeffy" in message2 or "@BashoogieBot" in message2:
         message2 = message2.replace('@Jeffy', '')
         message2 = message2.replace('@BashoogieBot', '')
-        youtube.send_video(message2)
+        send_video(message2)
         #context.bot.send_message(chat_id=receivedMessage.chat_id, text=receivedMessage.message_id)
         
     #if "fuck" in message2:
