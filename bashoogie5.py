@@ -26,7 +26,7 @@ def echo(update, context):
         counter+=1
         if counter == 20:
             context.bot.send_message(chat_id=receivedMessage.chat_id, text=link.get('href')
-    if "fuck" in  message2:
+    if "fuck" in message2:
         context.bot.send_message(chat_id=update.message.chat_id, text=message2)
 
 url = 'https://www.youtube.com/results?search_query=athlean+x+abs'
