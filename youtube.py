@@ -3,7 +3,7 @@ import os
 import requests
 from telegram.ext import MessageHandler, Filters, CommandHandler,Updater
 from bs4 import BeautifulSoup
-def video(message2):
+def video(message2, context):
     message2 = message2.replace(' ', '+')
     url = 'https://www.youtube.com/results?search_query='
     response = requests.get(url + message2,timeout=5)

@@ -20,7 +20,7 @@ def echo(update, context):
     if "@Jeffy" in message2 or "@BashoogieBot" in message2:
         message2 = message2.replace('@Jeffy', '')
         message2 = message2.replace('@BashoogieBot', '')
-        video(message2)
+        video(message2,context)
         #context.bot.send_message(chat_id=receivedMessage.chat_id, text=receivedMessage.message_id)
         
     #if "fuck" in message2:
