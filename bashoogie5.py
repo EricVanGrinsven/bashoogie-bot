@@ -1,7 +1,7 @@
 import telegram
 import os
 import requests
-from youtube import send_video
+from youtube import video
 from telegram.ext import MessageHandler, Filters, CommandHandler,Updater
 from bs4 import BeautifulSoup
 TOKEN = "771496641:AAFxDXFGa67rTkzJcnYo0BjDlwI77lpSXE4"
