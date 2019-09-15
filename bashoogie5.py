@@ -1,14 +1,12 @@
 import telegram
 import os
 import requests
-from telegram.ext import Updater
-from telegram.ext import MessageHandler, Filters, CommandHandler
+from telegram.ext import MessageHandler, Filters, CommandHandler,Updater
 from bs4 import BeautifulSoup
 TOKEN = "771496641:AAFxDXFGa67rTkzJcnYo0BjDlwI77lpSXE4"
 PORT = int(os.environ.get('PORT', '8443'))
 updater = Updater(TOKEN, use_context=True)
 dispatcher = updater.dispatcher
-#dispatcher = updater.dispatcher
 #def echo(update, context):
  #   context.bot.send_message(chat_id=update.message.chat_id, text=update.message.text)
 # add handlers
@@ -26,8 +24,8 @@ def echo(update, context):
     counter = 0
     for link in content.find_all('a'):
         counter+=1
-        if counter == 20:
-            context.bot.send_message(chat_id=receivedMessage.chat_id, text=link.get('href')
+        #if counter == 20:
+        #    context.bot.send_message(chat_id=receivedMessage.chat_id, text=link.get('href')
     #if "fuck" in message2:
     #    context.bot.send_message(chat_id=update.message.chat_id, text=message2)
 echo_handler = MessageHandler(Filters.text, echo)
