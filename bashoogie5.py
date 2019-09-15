@@ -25,7 +25,7 @@ def echo(update, context):
     set = true
     for link in content.find_all('a'):
         counter+=1
-        if counter == 47 && "google" not in link.get('href') && set == true
+        if counter == 47 && "google" not in link.get('href') && set == true:
             context.bot.send_message(chat_id=receivedMessage.chat_id, text= 'youtube.com' + link.get('href'))
             set = false
     #if "fuck" in message2:
