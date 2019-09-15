@@ -18,19 +18,18 @@ def echo(update, context):
     receivedMessage =update.message
     message2 = receivedMessage.text
     user2 = receivedMessage.from_user
-    context.bot.send_message(chat_id=receivedMessage.chat_id, text=receivedMessage.message_id)
-    response = requests.get(url,timeout=5)
+    #context.bot.send_message(chat_id=receivedMessage.chat_id, text=receivedMessage.message_id)
+    message2 = message2.replace(' ', '+')
+    url = 'https://www.youtube.com/results?search_query='
+    response = requests.get(url + message2,timeout=5)
     content = BeautifulSoup(response.content, "html.parser")
     counter = 0
     for link in content.find_all('a'):
         counter+=1
         if counter == 20:
             context.bot.send_message(chat_id=receivedMessage.chat_id, text=link.get('href')
-    if "fuck" in message2:
-        context.bot.send_message(chat_id=update.message.chat_id, text=message2)
-
-url = 'https://www.youtube.com/results?search_query=athlean+x+abs'
-
+    #if "fuck" in message2:
+    #    context.bot.send_message(chat_id=update.message.chat_id, text=message2)
 echo_handler = MessageHandler(Filters.text, echo)
 dispatcher.add_handler(echo_handler)
 bot = telegram.Bot(token='771496641:AAFxDXFGa67rTkzJcnYo0BjDlwI77lpSXE4')
