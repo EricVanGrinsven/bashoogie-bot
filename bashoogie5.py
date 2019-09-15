@@ -22,10 +22,12 @@ def echo(update, context):
     response = requests.get(url + message2,timeout=5)
     content = BeautifulSoup(response.content, "html.parser")
     counter = 0
+    set = true
     for link in content.find_all('a'):
         counter+=1
-        if counter == 47:
+        if counter == 47 && "google" not in link.get('href') && set == true
             context.bot.send_message(chat_id=receivedMessage.chat_id, text= 'youtube.com' + link.get('href'))
+            set = false
     #if "fuck" in message2:
     #    context.bot.send_message(chat_id=update.message.chat_id, text=message2)
 echo_handler = MessageHandler(Filters.text, echo)
