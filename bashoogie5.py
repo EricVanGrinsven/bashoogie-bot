@@ -17,10 +17,12 @@ def echo(update, context):
     receivedMessage =update.message
     message2 = receivedMessage.text
     user2 = receivedMessage.from_user
-    if "@Jeffy" in message2 or "@BashoogieBot" in message2:
-        message2 = message2.replace('@Jeffy', '')
-        message2 = message2.replace('@BashoogieBot', '')
-        video(receivedMessage, message2,context)
+    #if "@Jeffy" in message2 or "@BashoogieBot" in message2:
+        #message2 = message2.replace('@Jeffy', '')
+        #message2 = message2.replace('@BashoogieBot', '')
+        #message2 = message2.replace('@Jeffy ', '')
+        #message2 = message2.replace('@BashoogieBot ', '')
+    video(receivedMessage, message2,context)
         #context.bot.send_message(chat_id=receivedMessage.chat_id, text=receivedMessage.message_id)
         
     #if "fuck" in message2:
