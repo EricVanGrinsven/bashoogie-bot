@@ -23,10 +23,7 @@ def echo(update, context):
         message2 = message2.replace('@Jeffy ', '')
         message2 = message2.replace('@BashoogieBot ', '')
         video(receivedMessage, message2,context)
-        #context.bot.send_message(chat_id=receivedMessage.chat_id, text=receivedMessage.message_id)
-        
-    #if "fuck" in message2:
-    #    context.bot.send_message(chat_id=update.message.chat_id, text=message2)
+
 echo_handler = MessageHandler(Filters.text, echo)
 dispatcher.add_handler(echo_handler)
 bot = telegram.Bot(token='771496641:AAFxDXFGa67rTkzJcnYo0BjDlwI77lpSXE4')

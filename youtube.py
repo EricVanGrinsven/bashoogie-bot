@@ -12,7 +12,7 @@ def video(receivedMessage, message2, context):
     set = True
     for link in content.find_all('a'):
         counter+=1
-        if counter >= 47 and "google" not in link.get('href') and  "user" not in link.get('href') and channel not in link.get('href') and set == True:
+        if counter >= 47 and "google" not in link.get('href') and  "user" not in link.get('href') and "channel" not in link.get('href')   and set == True:
             context.bot.send_message(chat_id=receivedMessage.chat_id, text= 'youtube.com' + link.get('href'))
             set = False
         
