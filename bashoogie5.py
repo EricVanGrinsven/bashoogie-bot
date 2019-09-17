@@ -7,7 +7,7 @@ import telegram
 import os
 import requests
 from youtube import video
-from telegram.ext import MessageHandler, Filters, CommandHandler,Updater
+from telegram.ext import MessageHandler, Filters, CommandHandler, Updater
 from bs4 import BeautifulSoup
 
 TOKEN = os.getenv("TOKEN")
@@ -24,12 +24,13 @@ def executeYoutube(update, context):
     receivedMessage =update.message
     message2 = receivedMessage.text
     user2 = receivedMessage.from_user
-    if "@Jeffy " not in message2 or "@BashoogieBot " not in message2:
+    """if "@Jeffy " not in message2 or "@BashoogieBot " not in message2:
         message2 = message2.replace('@Jeffy', '')
         message2 = message2.replace('@BashoogieBot', '')
         message2 = message2.replace('@Jeffy ', '')
-        message2 = message2.replace('@BashoogieBot ', '')
-        video(receivedMessage, message2,context)
+        message2 = message2.replace('@BashoogieBot ', '')"""
+    message2 = message2.replace('/youtube ', '')
+    video(receivedMessage, message2,context)
 youtube_handler = CommandHandler('youtube', executeYoutube)
 #echo_handler = MessageHandler(Filters.text, echo)
 dispatcher.add_handler(youtube_handler)
