@@ -34,15 +34,19 @@ def help(update, context):
     receivedMessage = update.message
     speech = "Hello, I am Jeffy.\n To send youtube video, type '/youtube' followed by your video"
     context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech)
-    
+def bebsi(update, context):
+    receivedMessage = update.message
+    speech = "DAAAAAAAAAAAAAAAAAAAAAAAASSSSSSSSSSSSSSSSS BEASHTTTTTTTTTTTTT"
+    context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech)    
     
 youtube_handler = CommandHandler('youtube', executeYoutube)
 start_handler = CommandHandler('start', start)
 help_handler = CommandHandler('help', help)
-#echo_handler = MessageHandler(Filters.text, echo)
+bebsi_handler = CommandHandler('bebsi', bebsi)
 dispatcher.add_handler(youtube_handler)
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(help_handler)
+dispatcher.add_handler(bebsi_handler)
 bot = telegram.Bot(token=TOKEN)
 
 """
