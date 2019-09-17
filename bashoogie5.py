@@ -32,17 +32,22 @@ def start(update, context):
     context.bot.send_message(chat_id=receivedMessage.chat_id, text=speech)
 def help(update, context):
     receivedMessage = update.message
-    speech = "Hello, I am Jeffy.\n To send youtube video, type '/youtube' followed by your video"
+    speech = "Hello, I am Jeffy.\n To send youtube video, type '/youtube' followed by your video\n'rand' followed by a number x for a random number between 0 and x"
     context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech)
 def bebsi(update, context):
     receivedMessage = update.message
     speech = "DAAAAAAAAAAAAAAAAAAAAAAAASSSSSSSSSSSSSSSSS BEASHTTTTTTTTTTTTT"
-    context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech)    
+    context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech) 
+def randomNum(update, context)
+    receivedMessage = update.message
+    update.message.text = update.message.text.replace('/random ', '')
+    context.bot.send_message(chat_id=receivedMessage.chat_id, text= int(update.message.text)
     
 youtube_handler = CommandHandler('youtube', executeYoutube)
 start_handler = CommandHandler('start', start)
 help_handler = CommandHandler('help', help)
 bebsi_handler = CommandHandler('bebsi', bebsi)
+rand_handler = CommandHandler('random', randomNum)
 dispatcher.add_handler(youtube_handler)
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(help_handler)
