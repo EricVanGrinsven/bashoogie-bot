@@ -33,4 +33,5 @@ def video(receivedMessage, message2, context):
         if counter >= skipLines and keywordInLine ==  False and notLinked == True:
             context.bot.send_message(chat_id=receivedMessage.chat_id, text= 'youtube.com' + link.get('href'))
             notLinked = False
+            keywordInLine = False
         
