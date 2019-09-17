@@ -20,7 +20,7 @@ def video(receivedMessage, message2, context):
     response = requests.get(url + message2,timeout=5)
     content = BeautifulSoup(response.content, "html.parser")
     counter = 0 # Amount of lines we've gone through
-    skipLines =  47 # The number of html lines to skip over
+    skipLines =  47 # The number of html lines to skip over in every youtube search
     keywords = ["google", "user", "channel"] # Words that we do NOT wantto link
     keywordInLine = False
     notLinked = True # Used to only link 1 video

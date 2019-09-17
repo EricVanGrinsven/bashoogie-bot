@@ -4,7 +4,7 @@ import requests
 from youtube import video
 from telegram.ext import MessageHandler, Filters, CommandHandler,Updater
 from bs4 import BeautifulSoup
-TOKEN = "771496641:AAFxDXFGa67rTkzJcnYo0BjDlwI77lpSXE4"
+TOKEN = os.getenv("TOKEN")
 PORT = int(os.environ.get('PORT', '8443'))
 updater = Updater(TOKEN, use_context=True)
 dispatcher = updater.dispatcher
