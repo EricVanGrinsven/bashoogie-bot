@@ -1,18 +1,25 @@
+"""
+Main Driver of our telegram bot. Delegates which messages need responses
+and where to get those responses from.  Our bot receives messages via
+webhooks, and the server is hosted on heroku.
+"""
 import telegram
 import os
 import requests
 from youtube import video
 from telegram.ext import MessageHandler, Filters, CommandHandler,Updater
 from bs4 import BeautifulSoup
+
 TOKEN = os.getenv("TOKEN")
 PORT = int(os.environ.get('PORT', '8443'))
 updater = Updater(TOKEN, use_context=True)
 dispatcher = updater.dispatcher
-#def echo(update, context):
- #   context.bot.send_message(chat_id=update.message.chat_id, text=update.message.text)
-# add handlers
-#echo_handler = MessageHandler(Filters.text, echo)
-#dispatcher.add_handler(echo_handler)    
+
+"""
+echo will simply find which command was sent to the bot, and lead it to
+the correct method using a switch statement. EX) /youtube will follow 
+the youtube method and send the corresponding message
+"""
 def echo(update, context):
     receivedMessage =update.message
     message2 = receivedMessage.text
@@ -26,8 +33,11 @@ def echo(update, context):
 
 echo_handler = MessageHandler(Filters.text, echo)
 dispatcher.add_handler(echo_handler)
-bot = telegram.Bot(token='771496641:AAFxDXFGa67rTkzJcnYo0BjDlwI77lpSXE4')
+bot = telegram.Bot(token=TOKEN)
 
+"""
+Set up the webhook to work with herokuapp
+"""
 def main():
     updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN)
     updater.bot.set_webhook("https://young-waters-97525.herokuapp.com/" + TOKEN)
