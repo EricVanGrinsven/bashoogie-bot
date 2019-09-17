@@ -37,7 +37,7 @@ def help(update, context):
     
     
 youtube_handler = CommandHandler('youtube', executeYoutube)
-start_handler = CommandHandler('start, start)
+start_handler = CommandHandler('start', start)
 help_handler = CommandHandler('help', help)
 #echo_handler = MessageHandler(Filters.text, echo)
 dispatcher.add_handler(youtube_handler)
