@@ -24,16 +24,29 @@ def executeYoutube(update, context):
     receivedMessage =update.message
     message2 = receivedMessage.text
     user2 = receivedMessage.from_user
-    """if "@Jeffy " not in message2 or "@BashoogieBot " not in message2:
-        message2 = message2.replace('@Jeffy', '')
-        message2 = message2.replace('@BashoogieBot', '')
-        message2 = message2.replace('@Jeffy ', '')
-        message2 = message2.replace('@BashoogieBot ', '')"""
     message2 = message2.replace('/youtube ', '')
     video(receivedMessage, message2,context)
+def start(update, context):
+    receivedMessage = update.message
+    speech = "Hello, I am Jeffy. \n To send youtube video, type '/youtube' followed by your video"
+    context.bot.send_message(chat_id=receivedMessage.chat_id, text=speech
+def help(update, context):
+    receivedMessage = update.message
+    speech = "Hello, I am Jeffy. \n To send youtube video, type '/youtube' followed by your video"
+    context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech
+    
+    
+    
+    
+    
+    
 youtube_handler = CommandHandler('youtube', executeYoutube)
+start_handler = CommandHandler('start, start)
+help_handler = CommandHandler('help', help)
 #echo_handler = MessageHandler(Filters.text, echo)
 dispatcher.add_handler(youtube_handler)
+dispatcher.add_handler(start_handler)
+dispatcher.add_handler(help_handler)
 bot = telegram.Bot(token=TOKEN)
 
 """
