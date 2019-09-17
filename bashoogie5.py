@@ -20,19 +20,19 @@ echo will simply find which command was sent to the bot, and lead it to
 the correct method using a switch statement. EX) /youtube will follow 
 the youtube method and send the corresponding message
 """
-def echo(update, context):
+def executeYoutube(update, context):
     receivedMessage =update.message
     message2 = receivedMessage.text
     user2 = receivedMessage.from_user
-    if "@Jeffy " in message2 or "@BashoogieBot " in message2:
+    if "@Jeffy " not in message2 or "@BashoogieBot " not in message2:
         message2 = message2.replace('@Jeffy', '')
         message2 = message2.replace('@BashoogieBot', '')
         message2 = message2.replace('@Jeffy ', '')
         message2 = message2.replace('@BashoogieBot ', '')
         video(receivedMessage, message2,context)
-
-echo_handler = MessageHandler(Filters.text, echo)
-dispatcher.add_handler(echo_handler)
+youtube_handler = CommandHandler('youtube', executeYoutube)
+#echo_handler = MessageHandler(Filters.text, echo)
+dispatcher.add_handler(youtube_handler)
 bot = telegram.Bot(token=TOKEN)
 
 """
