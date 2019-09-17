@@ -28,7 +28,7 @@ def video(receivedMessage, message2, context):
     for link in content.find_all('a'):
         counter+=1
         for i in keywords:
-            if i in link.get('href')
+            if i in link.get('href'):
                 keywordInLine = True
         if counter >= skipLines and keywordInLine ==  False and notLinked == True:
             context.bot.send_message(chat_id=receivedMessage.chat_id, text= 'youtube.com' + link.get('href'))
