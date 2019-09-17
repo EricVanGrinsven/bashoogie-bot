@@ -29,15 +29,11 @@ def executeYoutube(update, context):
 def start(update, context):
     receivedMessage = update.message
     speech = "Hello, I am Jeffy. \n To send youtube video, type '/youtube' followed by your video"
-    context.bot.send_message(chat_id=receivedMessage.chat_id, text=speech
+    context.bot.send_message(chat_id=receivedMessage.chat_id, text=speech)
 def help(update, context):
     receivedMessage = update.message
     speech = "Hello, I am Jeffy. \n To send youtube video, type '/youtube' followed by your video"
-    context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech
-    
-    
-    
-    
+    context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech)
     
     
 youtube_handler = CommandHandler('youtube', executeYoutube)
