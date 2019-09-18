@@ -40,8 +40,8 @@ def bebsi(update, context):
     context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech) 
 def randomNum(update, context):
     receivedMessage = update.message
-    update.message.text = update.message.text.replace('/random ', '')
-    context.bot.send_message(chat_id=receivedMessage.chat_id, text= update.message.text)
+    receivedMessage.text = receivedMessage.text.replace('/random ', '')
+    context.bot.send_message(chat_id=receivedMessage.chat_id, text= receivedMessage.text)
     
 youtube_handler = CommandHandler('youtube', executeYoutube)
 start_handler = CommandHandler('start', start)
