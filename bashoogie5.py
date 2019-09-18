@@ -40,9 +40,8 @@ def bebsi(update, context):
     context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech) 
 def randomNum(update, context):
     receivedMessage = update.message
-    #receivedMessage.text = receivedMessage.text.replace('/random ', '')
-    speech = "DAAAAAAAAAAAAAAAAAAAAAAAASSSSSSSSSSSSSSSSS BEASHTTTTTTTTTTTTT"
-    context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech)
+    receivedMessage.text = receivedMessage.text.replace('/random ', '')
+    context.bot.send_message(chat_id=receivedMessage.chat_id, text= int(receivedMessage.text))
     
 youtube_handler = CommandHandler('youtube', executeYoutube)
 start_handler = CommandHandler('start', start)
@@ -53,6 +52,7 @@ dispatcher.add_handler(youtube_handler)
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(help_handler)
 dispatcher.add_handler(bebsi_handler)
+dispatcher.add_handler(rand_handler)
 bot = telegram.Bot(token=TOKEN)
 
 """
