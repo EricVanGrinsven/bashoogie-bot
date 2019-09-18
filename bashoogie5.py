@@ -38,7 +38,7 @@ def bebsi(update, context):
     receivedMessage = update.message
     speech = "DAAAAAAAAAAAAAAAAAAAAAAAASSSSSSSSSSSSSSSSS BEASHTTTTTTTTTTTTT"
     context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech) 
-def randomNum(update, context)
+def randomNum(update, context):
     receivedMessage = update.message
     update.message.text = update.message.text.replace('/random ', '')
     context.bot.send_message(chat_id=receivedMessage.chat_id, text= int(update.message.text))
