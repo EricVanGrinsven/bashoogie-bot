@@ -41,8 +41,10 @@ def bebsi(update, context):
 def randomNum(update, context):
     receivedMessage = update.message
     receivedMessage.text = receivedMessage.text.replace('/random ', '')
-    context.bot.send_message(chat_id=receivedMessage.chat_id, text= int(receivedMessage.text))
-    
+    try:
+        context.bot.send_message(chat_id=receivedMessage.chat_id, text= int(receivedMessage.text))
+    except: 
+        context.bot.send_message(chat_id=receivedMessage.chat_id, text= "Please type an integer with the command")
 youtube_handler = CommandHandler('youtube', executeYoutube)
 start_handler = CommandHandler('start', start)
 help_handler = CommandHandler('help', help)
