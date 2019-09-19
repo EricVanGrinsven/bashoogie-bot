@@ -27,6 +27,9 @@ def executeYoutube(update, context):
     user2 = receivedMessage.from_user
     message2 = message2.replace('/youtube ', '')
     video(receivedMessage, message2,context)
+"""
+Instructions on bot startup
+"""
 def start(update, context):
     receivedMessage = update.message
     speech = "Hello, I am Jeffy.\n\
@@ -34,29 +37,46 @@ def start(update, context):
     Type '/random + n' to receive a random number 'n' from 0-n\
     Type '/help' for these options again"
     context.bot.send_message(chat_id=receivedMessage.chat_id, text=speech)
+"""
+Instructions/help for user
+"""
 def help(update, context):
     receivedMessage = update.message
     speech = "To send youtube video, type '/youtube' followed by your video\n\
     Type '/random + n' to receive a random number 'n' from 0-n\
     Type '/help' for these options again"
-    context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech)
+    context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech
+"""
+Inside Joke with my friends!
+"""
 def bebsi(update, context):
     receivedMessage = update.message
     speech = "DAAAAAAAAAAAAAAAAAAAAAAAASSSSSSSSSSSSSSSSS BEASHTTTTTTTTTTTTT"
-    context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech) 
+    context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech)
+"""
+Generates random number from 0-n, with n chosen by the user
+"""    
 def randomNum(update, context):
     receivedMessage = update.message
     receivedMessage.text = receivedMessage.text.replace('/random ', '')
+    #If the user does not give an error, throw error to just a chat message
     try:
         number = int(receivedMessage.text)
         context.bot.send_message(chat_id=receivedMessage.chat_id, text= random.randint(0, number))
     except: 
         context.bot.send_message(chat_id=receivedMessage.chat_id, text= "Please type an integer with the command")
+
+def greeting(update, context):
+    greetings = ["hello", "what's up, my dude?",  "yeet for treat"]
+    randomGreeting = random.randomint(0, len(greetings)-1)
+    context.bot.send_message(chat_id=receivedMessage.chat_id, text= greetings[randomGreeting])
 youtube_handler = CommandHandler('youtube', executeYoutube)
 start_handler = CommandHandler('start', start)
 help_handler = CommandHandler('help', help)
 bebsi_handler = CommandHandler('bebsi', bebsi)
 rand_handler = CommandHandler('random', randomNum)
+greeting_handler = CommandHandler('hello, greeting')
+
 dispatcher.add_handler(youtube_handler)
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(help_handler)
