@@ -47,7 +47,7 @@ def help(update, context):
     Type '/help' for these options again"
     context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech
 """
-Inside Joke with my friends!
+Inside Joke with my friends
 """
 def bebsi(update, context):
     receivedMessage = update.message
