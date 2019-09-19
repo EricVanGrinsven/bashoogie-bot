@@ -45,10 +45,10 @@ def help(update, context):
     speech = "To send youtube video, type '/youtube' followed by your video\n\
     Type '/random + n' to receive a random number 'n' from 0-n\
     Type '/help' for these options again"
-    context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech
-
-#Inside Joke with my friends
-
+    context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech)
+"""
+Inside Joke with my friends
+"""
 def bebsi(update, context):
     receivedMessage = update.message
     speech = "DAAAAAAAAAAAAAAAAAAAAAAAASSSSSSSSSSSSSSSSS BEASHTTTTTTTTTTTTT"
