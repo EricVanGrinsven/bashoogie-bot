@@ -70,12 +70,13 @@ def greeting(update, context):
     greetings = ["hello", "what's up, my dude?",  "yeet for treat"]
     randomGreeting = random.randomint(0, len(greetings)-1)
     context.bot.send_message(chat_id=receivedMessage.chat_id, text= greetings[randomGreeting])
+    
 youtube_handler = CommandHandler('youtube', executeYoutube)
 start_handler = CommandHandler('start', start)
 help_handler = CommandHandler('help', help)
 bebsi_handler = CommandHandler('bebsi', bebsi)
 rand_handler = CommandHandler('random', randomNum)
-greeting_handler = CommandHandler('hello, greeting')
+greeting_handler = CommandHandler('hello', greeting)
 
 dispatcher.add_handler(youtube_handler)
 dispatcher.add_handler(start_handler)
