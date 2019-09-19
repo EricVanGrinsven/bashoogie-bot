@@ -71,7 +71,7 @@ Randomly selected greeting to send to the user
 def greeting(update, context):
     greetings = ["hello", "what's up, my dude?",  "yeet for treat"]
     randomGreeting = random.randomint(0, len(greetings)-1)
-    context.bot.send_message(chat_id=receivedMessage.chat_id, text= "yeet")
+    context.bot.send_message(chat_id=receivedMessage.chat_id, text= greetings[randomGreeting])
     
 youtube_handler = CommandHandler('youtube', executeYoutube)
 start_handler = CommandHandler('start', start)
@@ -85,6 +85,7 @@ dispatcher.add_handler(start_handler)
 dispatcher.add_handler(help_handler)
 dispatcher.add_handler(bebsi_handler)
 dispatcher.add_handler(rand_handler)
+dispatcher.add_handler(greeting_handler)
 bot = telegram.Bot(token=TOKEN)
 
 """
