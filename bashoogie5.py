@@ -6,6 +6,7 @@ webhooks, and the server is hosted on heroku.
 import telegram
 import os
 import requests
+import random
 from youtube import video
 from telegram.ext import MessageHandler, Filters, CommandHandler, Updater
 from bs4 import BeautifulSoup
@@ -42,7 +43,8 @@ def randomNum(update, context):
     receivedMessage = update.message
     receivedMessage.text = receivedMessage.text.replace('/random ', '')
     try:
-        context.bot.send_message(chat_id=receivedMessage.chat_id, text= int(receivedMessage.text))
+        number = int(receivedMessage.text)
+        context.bot.send_message(chat_id=receivedMessage.chat_id, text= randint(0, number))
     except: 
         context.bot.send_message(chat_id=receivedMessage.chat_id, text= "Please type an integer with the command")
 youtube_handler = CommandHandler('youtube', executeYoutube)
