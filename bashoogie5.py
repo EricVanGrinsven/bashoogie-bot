@@ -44,7 +44,7 @@ def randomNum(update, context):
     receivedMessage.text = receivedMessage.text.replace('/random ', '')
     try:
         number = int(receivedMessage.text)
-        context.bot.send_message(chat_id=receivedMessage.chat_id, text= randint(0, number))
+        context.bot.send_message(chat_id=receivedMessage.chat_id, text= random.randint(0, number))
     except: 
         context.bot.send_message(chat_id=receivedMessage.chat_id, text= "Please type an integer with the command")
 youtube_handler = CommandHandler('youtube', executeYoutube)
