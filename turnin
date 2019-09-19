@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+echo Hello, world!
+pip3 freeze > requirements.txt
+git add bashoogie5.py requirements.txt Procfile youtube.py
+git commit -m "testing sent from script"
+git push heroku master
+#heroku ps:scale web=0
+#heroku ps:scale web=1
