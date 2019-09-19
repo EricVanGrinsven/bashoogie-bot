@@ -65,7 +65,9 @@ def randomNum(update, context):
         context.bot.send_message(chat_id=receivedMessage.chat_id, text= random.randint(0, number))
     except: 
         context.bot.send_message(chat_id=receivedMessage.chat_id, text= "Please type an integer with the command")
-
+"""
+Randomly selected greeting to send to the user
+"""
 def greeting(update, context):
     greetings = ["hello", "what's up, my dude?",  "yeet for treat"]
     randomGreeting = random.randomint(0, len(greetings)-1)
