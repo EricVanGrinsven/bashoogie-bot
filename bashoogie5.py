@@ -69,9 +69,10 @@ def randomNum(update, context):
 Randomly selected greeting to send to the user
 """
 def greeting(update, context):
+    receivedMessage = update.message
     greetings = ["hello", "what's up, my dude?",  "yeet for treat"]
-    #randomGreeting = random.randint(0, len(greetings)-1)
-    context.bot.send_message(chat_id=receivedMessage.chat_id, text= "qqq")
+    randomGreeting = random.randint(0, len(greetings)-1)
+    context.bot.send_message(chat_id=receivedMessage.chat_id, text= greetings[randomGreeting])
     
 youtube_handler = CommandHandler('youtube', executeYoutube)
 start_handler = CommandHandler('start', start)
