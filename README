@@ -1,0 +1,10 @@
+This project is a telegram bot that does that following and more:
+	Links the top rated/matched youtube video related to the user's search
+	Greets and speaks back to users
+	Returns a random number from 0-n based on user input
+BashoogieBot runs remotely on a heroku server using Webhooks
+
+-implemented using python and the telegram-bot-api
+-web-scraping done using BeautifulSoup in python. The webscraping searches youtube for
+	an input given by the user, and returns to chat the link to the first video, 
+	which falls under (a) class:wq
