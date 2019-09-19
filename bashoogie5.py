@@ -29,11 +29,16 @@ def executeYoutube(update, context):
     video(receivedMessage, message2,context)
 def start(update, context):
     receivedMessage = update.message
-    speech = "Hello, I am Jeffy.\nTo send youtube video, type '/youtube' followed by your video\nType '/random + n' to receive a random number 'n' from 0-n"
+    speech = "Hello, I am Jeffy.\n\
+    To send youtube video, type '/youtube' followed by your video\n\
+    Type '/random + n' to receive a random number 'n' from 0-n\
+    Type '/help' for these options again"
     context.bot.send_message(chat_id=receivedMessage.chat_id, text=speech)
 def help(update, context):
     receivedMessage = update.message
-    speech = "Hello, I am Jeffy.\n To send youtube video, type '/youtube' followed by your video\nType '/random + n' to receive a random number 'n' from 0-n"
+    speech = "To send youtube video, type '/youtube' followed by your video\n\
+    Type '/random + n' to receive a random number 'n' from 0-n\
+    Type '/help' for these options again"
     context.bot.send_message(chat_id=receivedMessage.chat_id, text= speech)
 def bebsi(update, context):
     receivedMessage = update.message
