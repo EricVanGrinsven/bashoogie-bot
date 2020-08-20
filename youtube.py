@@ -24,6 +24,7 @@ def video(receivedMessage, message2, context):
     keywords = ["google", "user", "channel"] # Words that we do NOT wantto link
     keywordInLine = False
     notLinked = True # Used to only link 1 video
+    context.bot.send_message(chat_id=receivedMessage.chat_id, text='initial 1 test for eric')
     # Loop through all 'a' lines that have an 'href' link to search for top resulted video
     for link in content.find_all('a'):
         counter+=1
